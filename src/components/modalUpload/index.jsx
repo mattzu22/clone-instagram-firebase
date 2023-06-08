@@ -5,8 +5,7 @@ import { storage, db } from '../../firebase.js'
 
 
 
-
-export const ModalUpload = ({ setToggleModal, toggleModal })=>{
+export const ModalUpload = ({ modalUpload, setModalUpload, user })=>{
     const [ inputs, setInputs ] = useState({
         titulo: ""
     })
@@ -42,7 +41,8 @@ export const ModalUpload = ({ setToggleModal, toggleModal })=>{
                   db.collection('posts').add({
                     titulo: titulo,
                     image: url,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    user: user
                   })
 
                   setProgress(0)
@@ -55,10 +55,10 @@ export const ModalUpload = ({ setToggleModal, toggleModal })=>{
 
  return (
     <>
-    {toggleModal ? (
+    {modalUpload ? (
          <StyleModalUpload>
          <div className="form-modal-upload">
-           <div className="close-modal" onClick={() => setToggleModal(false)}>
+           <div className="close-modal" onClick={() => setModalUpload(false)}>
              X
            </div>
 

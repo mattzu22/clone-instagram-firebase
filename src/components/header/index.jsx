@@ -6,7 +6,9 @@ import { auth } from '../../firebase.js'
 import { ModalUpload } from "../modalUpload";
 
 export const Header = ({ user, setUser }) => {
-  const [toggleModal, setToggleModal] = useState(false)
+  const [modalCreateAccount, setModalCreateAccount] = useState(false)
+
+  const [modalUpload, setModalUpload] = useState(false)
 
   const [inputs, setInputs] = useState({
     login: '',
@@ -51,9 +53,9 @@ export const Header = ({ user, setUser }) => {
   
   return (
     <>
-      {(toggleModal) ? <ModalCreateAccount toggleModal={toggleModal} setToggleModal={setToggleModal}/> : null}
+      {(modalCreateAccount) ? <ModalCreateAccount modalCreateAccount={modalCreateAccount} setModalCreateAccount={setModalCreateAccount}/> : null}
 
-      {(toggleModal) ? <ModalUpload toggleModal={toggleModal} setToggleModal={setToggleModal}/> : null}
+      {(modalUpload) ? <ModalUpload modalUpload={modalUpload} setModalUpload={setModalUpload} user={user}/> : null}
 
       
       <HeaderStyle>
@@ -63,7 +65,7 @@ export const Header = ({ user, setUser }) => {
         {user ? (
           <div className="info-logado">
             <p>Olá, {user}!</p>
-            <a href="#" onClick={()=>{setToggleModal(true)}}>Postar</a>
+            <a href="#" onClick={()=>{setModalUpload(true)}}>Postar</a>
             <a href="#" onClick={(e) =>logout(e)}>Logout</a>
           </div>
         ) : (
@@ -77,7 +79,7 @@ export const Header = ({ user, setUser }) => {
             <a
               href="#"
               className="btn-create-account"
-              onClick={()=>{setToggleModal(true)}}
+              onClick={()=>{setModalCreateAccount(true)}}
             >
               Criar conta
             </a>

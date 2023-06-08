@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ModalStyle } from "./style";
 import { auth } from "../../firebase";
 
-export const ModalCreateAccount = ({toggleModal, setToggleModal}) => {
+export const ModalCreateAccount = ({modalCreateAccount, setModalCreateAccount}) => {
 
   const [inputs, setInputs] = useState({
     email: '',
@@ -41,12 +41,12 @@ export const ModalCreateAccount = ({toggleModal, setToggleModal}) => {
 
   return (
     <>
-      {toggleModal ? (
+      {modalCreateAccount ? (
         <ModalStyle>
           <div className="form-create-account">
             <h2>Crie sua conta</h2>
 
-            <div className="close-modal" onClick={() => setToggleModal(false)}>
+            <div className="close-modal" onClick={() => setModalCreateAccount(false)}>
               X
             </div>
 

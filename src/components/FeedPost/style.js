@@ -16,7 +16,7 @@ export const PostStyle = styled.div`
     padding: 10px;
   }
 
-  form {
+  form, .comments {
     padding: 15px;
   }
 
