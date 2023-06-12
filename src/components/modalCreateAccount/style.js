@@ -29,7 +29,6 @@ export const ModalStyle = styled.div`
         border: 1px solid #CCD0D5;
         padding: 5px 10px;
         border-radius: 4px;
-        color: white;
         font-size: 14px;
     }
 

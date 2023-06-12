@@ -33,7 +33,7 @@ export const ModalCreateAccount = ({modalCreateAccount, setModalCreateAccount}) 
         displayName: nome
       })
       alert('conta criada com sucesso!')
-      setToggleModal(false)
+      setModalCreateAccount(false)
     }).catch((err)=>{
       alert(err.message)
     });

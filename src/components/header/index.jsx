@@ -35,7 +35,6 @@ export const Header = ({ user, setUser }) => {
     .then((auth)=>{
       setUser(auth.user.displayName)
       alert('logado com sucesso!')
-      window.location.href = '/';
     })
     .catch((err)=>{
       alert(err.message)
